@@ -1,6 +1,5 @@
 {% set version = '0.0.5' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-autometric
@@ -13,8 +12,7 @@ source:
   sha256: 23c300559222c3aa6686bb88cab6d5cd52ef13727a0bccf8dbf0efcdc4edb50b
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,9 +35,8 @@ requirements:
   host:
     - r-base
   run:
+    - libwinpthread  # [win]
     - r-base
-    - {{ native }}gcc-libs           # [win]
-    - {{ native }}libwinpthread-git  # [win]
 
 test:
   commands:
