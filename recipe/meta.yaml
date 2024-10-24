@@ -12,7 +12,7 @@ source:
   sha256: 23c300559222c3aa6686bb88cab6d5cd52ef13727a0bccf8dbf0efcdc4edb50b
 
 build:
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -34,8 +34,8 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - winpthreads-devel  # [win]
   run:
-    - libwinpthread  # [win]
     - r-base
 
 test:
