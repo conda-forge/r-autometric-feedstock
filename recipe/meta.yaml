@@ -1,4 +1,4 @@
-{% set version = '0.0.5' %}
+{% set version = "0.1.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/autometric_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/autometric/autometric_{{ version }}.tar.gz
-  sha256: 23c300559222c3aa6686bb88cab6d5cd52ef13727a0bccf8dbf0efcdc4edb50b
+  sha256: b3e26bc0044e2f22a22b02a755b9bdaae3159a21f29334bcc8bbad5a784e8f9d
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -46,16 +46,9 @@ test:
 about:
   home: https://wlandau.github.io/autometric/, https://github.com/wlandau/autometric
   license: MIT
-  summary: Intense parallel workloads can be difficult to monitor. Packages 'crew.cluster', 'clustermq',
-    and 'future.batchtools' distribute hundreds of worker processes over multiple computers.
-    If a worker process exhausts its available memory, it may terminate silently, leaving
-    the underlying problem difficult to detect or troubleshoot. Using the 'autometric'
-    package, a worker can proactively monitor itself in a detached background thread.
-    The worker process itself runs normally, and the thread writes to a log every few
-    seconds. If the worker terminates unexpectedly, 'autometric' can read and visualize
-    the log file to reveal potential resource-related reasons for the crash. The 'autometric'
-    package borrows heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-    and 'psutil'.
+  summary: Intense parallel workloads can be difficult to monitor. Packages 'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds of worker processes over multiple computers. If a worker process exhausts its available memory, it may terminate silently, leaving the underlying problem difficult to detect
+    or troubleshoot. Using the 'autometric' package, a worker can proactively monitor itself in a detached background thread. The worker process itself runs normally, and the thread writes to a log every few seconds. If the worker terminates unexpectedly, 'autometric' can read and visualize the log file to reveal potential
+    resource-related reasons for the crash. The 'autometric' package borrows heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps> and 'psutil'.
   license_family: MIT
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
